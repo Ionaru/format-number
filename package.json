@@ -1,0 +1,46 @@
+{
+    "name": "@ionaru/format-number",
+    "version": "0.0.1",
+    "description": "A sturdy and effective number formatter.",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist/**/*"
+    ],
+    "scripts": {
+        "build": "tsc --project tsconfig.json",
+        "lint": "npm run lint:src && npm run lint:test",
+        "lint:src": "tslint --project tsconfig.json -c tslint.json --format stylish",
+        "lint:test": "tslint -c tslint.json src/**/*.spec.ts --format stylish",
+        "pretest": "npm run lint",
+        "test": "jest src",
+        "posttest": "codecov -f coverage/*.json",
+        "prepare": "npm run build",
+        "preversion": "npm run test"
+    },
+    "jest": {
+        "collectCoverage": true,
+        "collectCoverageFrom": [
+            "src/**/*.ts",
+            "!src/**/*.d.ts",
+            "!src/**/*.spec.ts"
+        ],
+        "preset": "ts-jest",
+        "testEnvironment": "node"
+    },
+    "keywords": [],
+    "author": "Jeroen Akkerman",
+    "repository": "github:Ionaru/format-number",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/jest": "^24.0.11",
+        "@types/node": "11.11.3",
+        "codecov": "^3.2.0",
+        "jest": "^24.5.0",
+        "ts-jest": "^24.0.0",
+        "tslint": "5.14.0",
+        "tslint-sonarts": "1.9.0",
+        "typescript": "3.3.3333"
+    },
+    "dependencies": {}
+}
