@@ -4,3 +4,26 @@ node_js:
     - '10' # EOL: April 2021
     - '8' # EOL: December 2019
     - '6' # EOL: April 2019
+before_deploy:
+    - if [ "$TRAVIS_BRANCH" = master ] && [ "$TRAVIS_PULL_REQUEST" = false ]; then npm version prerelease --no-git-tag-version --preid "$TRAVIS_BUILD_NUMBER"; fi
+deploy:
+    - provider: npm
+      email: info@saturnserver.org
+      api_key:
+          secure: yxgt2Ew+QDQWEsgmoei5JsLgOhsWEDwGB862damPCiUWm/UYTBKU1H0U30Fu6jC2/95nhXbNJ1JyqY4qkr601aYkuYr7a/PwJNktUVeRBGuSWGq5a4xoENhL5YngaWsAcl83r+NKFgYvj398CGxmyVrfAk8jw65za/9Gvs2vuSF20eY8zrb5lSL4f5sYDF3Ci7tQEcGBMi+MAhzPh9vJ6rW8fB0rX2ROwTTzUHkskeKdl812iWmUMW1v7yCvH57Ye2jsETxzbwzFXayBMz8YkHKQS/pnRsKbtikmsA71kaLbxD0BpjpFeeA2pMiD9ncRZGRoquIRtOnXUHK/VDkYGq0GAM910TbeWxDSJTvSPJwfwlYJyMVVclcvl3RmQYA5gDOSvo/k3Fdq981kosf354iDhz9kIxNOX5UdfSjO2KBR7XxYZRhnk60Rb92FWOr/t60Qkb79hmU1Xd7A/xXbknjyTr8Y2jy6x6S9ruIT9rQvENGuH86jQk7iBpEv6V23QMtDepJBWmREU+g6y0OBX/7Z3koyYBtFp1s9Ux0iquZblbuaVlixOQp+Zr/1K4LfHnZco6s2KqfS6GBzpUZNXPRFYOh3OnPUQZHy7jR6JmGv1Fs1Eil2FlIXOmsIjENgfyYasPPJM7DTGz9vr7C0WODMfgbeOwxV3aqh21sHKd0=
+      tag: next
+      skip_cleanup: true
+      on:
+          node: 10
+          branch: master
+          repo: Ionaru/format-number
+    - provider: npm
+      email: info@saturnserver.org
+      api_key:
+          secure: yxgt2Ew+QDQWEsgmoei5JsLgOhsWEDwGB862damPCiUWm/UYTBKU1H0U30Fu6jC2/95nhXbNJ1JyqY4qkr601aYkuYr7a/PwJNktUVeRBGuSWGq5a4xoENhL5YngaWsAcl83r+NKFgYvj398CGxmyVrfAk8jw65za/9Gvs2vuSF20eY8zrb5lSL4f5sYDF3Ci7tQEcGBMi+MAhzPh9vJ6rW8fB0rX2ROwTTzUHkskeKdl812iWmUMW1v7yCvH57Ye2jsETxzbwzFXayBMz8YkHKQS/pnRsKbtikmsA71kaLbxD0BpjpFeeA2pMiD9ncRZGRoquIRtOnXUHK/VDkYGq0GAM910TbeWxDSJTvSPJwfwlYJyMVVclcvl3RmQYA5gDOSvo/k3Fdq981kosf354iDhz9kIxNOX5UdfSjO2KBR7XxYZRhnk60Rb92FWOr/t60Qkb79hmU1Xd7A/xXbknjyTr8Y2jy6x6S9ruIT9rQvENGuH86jQk7iBpEv6V23QMtDepJBWmREU+g6y0OBX/7Z3koyYBtFp1s9Ux0iquZblbuaVlixOQp+Zr/1K4LfHnZco6s2KqfS6GBzpUZNXPRFYOh3OnPUQZHy7jR6JmGv1Fs1Eil2FlIXOmsIjENgfyYasPPJM7DTGz9vr7C0WODMfgbeOwxV3aqh21sHKd0=
+      skip_cleanup: true
+      on:
+          node: 10
+          branch: master
+          tags: true
+          repo: Ionaru/format-number
