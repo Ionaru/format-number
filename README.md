@@ -1,5 +1,10 @@
 # @ionaru/format-number
 
+[![npm version](https://img.shields.io/npm/v/@ionaru/format-number.svg?style=for-the-badge)](https://www.npmjs.com/package/@ionaru/format-number)
+[![npm version](https://img.shields.io/npm/v/@ionaru/format-number/next.svg?style=for-the-badge)](https://www.npmjs.com/package/@ionaru/format-number/v/next)
+[![Build Status](https://img.shields.io/travis/Ionaru/format-number/master.svg?style=for-the-badge)](https://travis-ci.org/Ionaru/format-number)
+[![codecov](https://img.shields.io/codecov/c/github/Ionaru/format-number/master.svg?style=for-the-badge)](https://codecov.io/gh/Ionaru/format-number)
+
 ## Description
 A package for formatting a number to improve its readability.
 
