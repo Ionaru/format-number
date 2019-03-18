@@ -1,9 +1,9 @@
 /**
- * A quite wonderful function.
- * @param {number | string} amount - amount
- * @param {number} [decimalAmount=2] - security
- * @param {string} [decimalMark=.] - security
- * @param {string} [delimiter=,] - security
+ * Format a number to make it more readable.
+ * @param {number | string} amount - The amount that will be formatted, must be convertible by `Number()`.
+ * @param {number} decimalAmount - The amount of decimal places will be in the formatted number.
+ * @param {string} decimalMark - The character that marks the start the fractional part of the formatted number.
+ * @param {string} delimiter - The character that separates the thousands in a number.
  * @returns {string}
  */
 export function formatNumber(amount: number | string, decimalAmount = 2, decimalMark = '.', delimiter = ','): string {
