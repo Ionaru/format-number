@@ -33,14 +33,14 @@
     "repository": "github:Ionaru/format-number",
     "license": "MIT",
     "devDependencies": {
-        "@types/jest": "^24.0.24",
-        "@types/node": "^13.1.0",
-        "codecov": "^3.6.1",
-        "jest": "^24.9.0",
-        "ts-jest": "^24.2.0",
-        "tslint": "^5.20.1",
+        "@types/jest": "^25.2.1",
+        "@types/node": "^13.11.1",
+        "codecov": "^3.6.5",
+        "jest": "^25.3.0",
+        "ts-jest": "^25.4.0",
+        "tslint": "^6.1.1",
         "tslint-sonarts": "1.9.0",
-        "typescript": "^3.7.4"
+        "typescript": "^3.8.3"
     },
     "dependencies": {}
 }
