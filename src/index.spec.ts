@@ -1,10 +1,8 @@
-/* tslint:disable:no-big-function no-identical-functions */
-
 import { formatNumber } from './';
 
 describe('formatNumber()', () => {
 
-    test.each([
+    it.each([
 
         [-50000, '-50,000.00'],
         [-0, '0.00'],
@@ -22,20 +20,23 @@ describe('formatNumber()', () => {
         ['5', '5.00'],
 
     ])('default formatting behaviour: %p', (input, expected) => {
+        expect.assertions(2);
 
         const result = formatNumber(input);
         expect(typeof result).toBe('string');
-        expect(result).toEqual(expected);
+        expect(result).toBe(expected);
 
     });
 
-    test('should accept a string as input', () => {
+    it('should accept a string as input', () => {
+        expect.assertions(2);
+
         const result = formatNumber('50000');
         expect(typeof result).toBe('string');
-        expect(result).toEqual('50,000.00');
+        expect(result).toBe('50,000.00');
     });
 
-    test.each([
+    it.each([
 
         -Infinity,
         '50,000.305',
@@ -45,12 +46,13 @@ describe('formatNumber()', () => {
         'Infinity',
 
     ])('unusable number: %p', (input) => {
+        expect.assertions(1);
 
-        expect(() => formatNumber(input)).toThrowError('formatNumber only accepts actual numbers.');
+        expect(() => formatNumber(input)).toThrow('formatNumber only accepts actual numbers.');
 
     });
 
-    test.each([
+    it.each([
 
         [0, 0, '0'],
         [0.5, 0, '1'],
@@ -86,46 +88,59 @@ describe('formatNumber()', () => {
         [50000.51234567891, Infinity, '50,000.51234567891'],
 
     ])('rounding %d to %p decimal place(s)', (input, decimalAmount, expected) => {
+        expect.assertions(2);
 
         const result = formatNumber(input, decimalAmount as number);
         expect(typeof result).toBe('string');
-        expect(result).toEqual(expected);
+        expect(result).toBe(expected);
 
     });
 
-    test('should accept different delimiters', () => {
+    it('should accept different delimiters', () => {
+        expect.assertions(2);
+
         const result = formatNumber(50000, 2, undefined, 'X');
         expect(typeof result).toBe('string');
-        expect(result).toEqual('50X000.00');
+        expect(result).toBe('50X000.00');
     });
 
-    test('should accept different decimal marks', () => {
+    it('should accept different decimal marks', () => {
+        expect.assertions(2);
+
         const result = formatNumber(50000, 2, 'X');
         expect(typeof result).toBe('string');
-        expect(result).toEqual('50,000X00');
+        expect(result).toBe('50,000X00');
     });
 
-    test('should be able to have an empty string as delimiter', () => {
+    it('should be able to have an empty string as delimiter', () => {
+        expect.assertions(2);
+
         const result = formatNumber(50000, 2, undefined, '');
         expect(typeof result).toBe('string');
-        expect(result).toEqual('50000.00');
+        expect(result).toBe('50000.00');
     });
 
-    test('should be able to have an empty string as both decimal mark and delimiter', () => {
+    it('should be able to have an empty string as both decimal mark and delimiter', () => {
+        expect.assertions(2);
+
         const result = formatNumber(50000, 2, '', '');
         expect(typeof result).toBe('string');
-        expect(result).toEqual('5000000');
+        expect(result).toBe('5000000');
     });
 
-    test('should be able to handle the same character as decimal mark and delimiter', () => {
+    it('should be able to handle the same character as decimal mark and delimiter', () => {
+        expect.assertions(2);
+
         const result = formatNumber(50000, 2, 'X', 'X');
         expect(typeof result).toBe('string');
-        expect(result).toEqual('50X000X00');
+        expect(result).toBe('50X000X00');
     });
 
-    test('should use default values when parameters are undefined', () => {
+    it('should use default values when parameters are undefined', () => {
+        expect.assertions(2);
+
         const result = formatNumber(50000, undefined, undefined, undefined);
         expect(typeof result).toBe('string');
-        expect(result).toEqual('50,000.00');
+        expect(result).toBe('50,000.00');
     });
 });

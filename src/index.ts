@@ -6,7 +6,7 @@
  * @param {string} delimiter - The character that separates the thousands in a number.
  * @returns {string}
  */
-export function formatNumber(amount: number | string, decimalAmount = 2, decimalMark = '.', delimiter = ','): string {
+export const formatNumber = (amount: number | string, decimalAmount = 2, decimalMark = '.', delimiter = ','): string => {
 
     if (decimalAmount === Infinity) {
         // Set a dynamic number of decimal places, depending on the input.
@@ -64,4 +64,4 @@ export function formatNumber(amount: number | string, decimalAmount = 2, decimal
     }
 
     return negativeMarker + firstDigits + middleText + decimalText;
-}
+};
